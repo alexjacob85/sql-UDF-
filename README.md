@@ -1,0 +1,5 @@
+# sql-UDF-
+sql function to remove space from characters in begining and end
+LTRIM and RTRIM don't always remove all the whitespace characters in a field such as carriage return or linefeed
+It is a frequent occurrence that we must remove leading and trailing whitespaces from a string before additional processing or sending it to another layer in an application. We can’t always control how the data is entered. The data might come from another system, a data conversion, an old application, EDI, Excel, or from an application which had poor quality control. In some of those cases, a whitespace might not be entered or saved in the system as character 32 which is a whitespace entered in a keyboard. If that happens, SQL built in functions for trimming whitespaces do not work so it becomes necessary to replace the “other” whitespace characters with character 32. Then LTRIM and RTRIM will work as expected.
+I created this simple UDF to cleanup the data when necessary. I only use this when troubleshooting an old SQL 2000 application or pinpointing weird data coming into the Data Warehouse from the ERP.
